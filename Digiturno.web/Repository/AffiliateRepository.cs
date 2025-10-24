@@ -14,13 +14,11 @@ public class AffiliateRepository : IAffiliateRepository
         _context = context;
     }
     
-    //Metodo para traer todos los afiliados
     public List<Affiliate> GetAll()
     {
         return _context.Afiliados.ToList();
     }
     
-    // Metodo para agregar un afiliado
     public void Add(Affiliate afiliado)
     {
         _context.Afiliados.Add(afiliado);
@@ -38,7 +36,6 @@ public class AffiliateRepository : IAffiliateRepository
         return true;;
     }
 
-    
     
     public Affiliate? GetById(int id)
     {

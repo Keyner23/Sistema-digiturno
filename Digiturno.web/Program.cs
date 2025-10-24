@@ -23,12 +23,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddScoped<IAffiliateRepository, AffiliateRepository>();
 builder.Services.AddScoped<IAffiliateService, AffiliateService>();
 
-
-
-
-
-
-
+builder.Services.AddScoped<ITurnRepository, TurnRepository>();
+builder.Services.AddScoped<ITurnService, TurnService>();
 
 
 var app = builder.Build();

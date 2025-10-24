@@ -1,39 +1,37 @@
 @model Digiturno.web.Data.Entities.Turn
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Turno Actual";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Create</h1>
 
-<h4>Turn</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="numeroTiket" class="control-label"></label>
-                <input asp-for="numeroTiket" class="form-control" />
-                <span asp-validation-for="numeroTiket" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="fecha" class="control-label"></label>
-                <input asp-for="fecha" class="form-control" />
-                <span asp-validation-for="fecha" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
+<br/>
+<br/>
+<div class="d-flex justify-content-between">
+    <a asp-controller="Home" asp-action="Index" class="btn btn-success">
+        <i class="bi bi-arrow-left"></i> Volver
+    </a>
+</div>
+
+
+<div class="d-flex flex-column align-items-center justify-content-center vh-100 bg-light">
+    @* <h2>Bienvido apreciado afiliado</h2> *@
+    @* <br/> *@
+    @* <br/> *@
+    @* <br/> *@
+    <div class="card shadow-lg text-center p-5 rounded-4" style="width: 380px;">
+        <h1 class="text-primary fw-bold mb-4">Toma tu turno</h1>
+
+        <div class="display-1 fw-bold text-success mb-5" style="font-size: 7rem;">
+            @(Model?.numeroTiket ?? 0)
+        </div>
+
+        <form asp-controller="Turn" asp-action="tomarTurno">
+            <button type="submit" class="btn btn-primary btn-lg px-5 py-3 rounded-4 shadow">
+                <i class="bi bi-arrow-right-circle"></i> Tomar Turno
+            </button>
         </form>
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
