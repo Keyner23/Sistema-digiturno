@@ -1,7 +1,13 @@
 using Digiturno.web.Data;
+using Digiturno.web.Interfaces;
+using Digiturno.web.Interfaces.Repositories;
+using Digiturno.web.Interfaces.Services;
+using Digiturno.web.Repository;
 using Microsoft.EntityFrameworkCore;
-
+using Digiturno.web.Services;   
 var builder = WebApplication.CreateBuilder(args);
+
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -13,6 +19,15 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
         ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("DefaultConnection"))
     )
 );
+
+builder.Services.AddScoped<IAffiliateRepository, AffiliateRepository>();
+builder.Services.AddScoped<IAffiliateService, AffiliateService>();
+
+
+
+
+
+
 
 
 

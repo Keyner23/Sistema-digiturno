@@ -3,7 +3,7 @@ using Digiturno.web.Data.Entities;
 using Digiturno.web.Interfaces;
 
 namespace Digiturno.web.Repository;
-
+using Digiturno.web.Interfaces.Repositories;
 public class AffiliateRepository : IAffiliateRepository
 {
     private readonly ApplicationDbContext _context;
