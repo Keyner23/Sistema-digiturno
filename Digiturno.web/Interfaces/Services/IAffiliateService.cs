@@ -6,4 +6,6 @@ public interface IAffiliateService
 {
     List<Affiliate> ObtenerAfiliados();
     void CrearAfiliado(Affiliate afiliado);
+    bool EliminarAfiliadoPorDocumento(int documento); 
+    Affiliate? GetById(int id);
 }

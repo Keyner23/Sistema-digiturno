@@ -1,0 +1,29 @@
+@model Digiturno.web.Data.Entities.Turn
+
+@{
+    ViewData["Title"] = "Turno Actual";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="d-flex justify-content-between">
+    <a asp-controller="Affiliate" asp-action="Index" class="btn btn-success">
+        <i class="bi bi-arrow-left"></i> Volver
+    </a>
+</div>
+
+
+<div class="d-flex flex-column align-items-center justify-content-center vh-100 bg-light">
+    <div class="card shadow-lg text-center p-5 rounded-4" style="width: 380px;">
+        <h1 class="text-primary fw-bold mb-4">Turno en curso</h1>
+
+        <div class="display-1 fw-bold text-success mb-5" style="font-size: 7rem;">
+            @(Model?.numeroTiket ?? 0)
+        </div>
+
+        <form asp-action="NextTurn" method="post">
+            <button type="submit" class="btn btn-primary btn-lg px-5 py-3 rounded-4 shadow">
+                <i class="bi bi-arrow-right-circle"></i> Siguiente
+            </button>
+        </form>
+    </div>
+    
+</div>
